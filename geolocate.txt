@@ -1,0 +1,34 @@
+HTML GEOLOCATE
+
+<textarea id="txtInfo" rows="6" cols="50"></textarea>
+
+<input type="button" value="Obter geolocalização" onclick="obterGeolocalizacao();" />
+
+JavaScript Geolocate
+
+function obterGeolocalizacao()
+{
+	if (!navigator.geolocation) {
+		$('#txtInfo').val('Não foi possível obter a sua geolocalização');
+		return;
+	}
+	
+	if (location.protocol != 'https:') {
+		$('#txtInfo').val('Só é permitido obter a geolocalização em sites https');
+		return;
+	}
+	
+	$('#txtInfo').val('obtendo geolocalização...');
+	
+	navigator.geolocation.getCurrentPosition(function (position) {
+
+		var texto = 'latitude=' + position.coords.latitude + '\r\n' +
+		'longitude=' + position.coords.longitude + '\r\n' +
+		'precisao=' + position.coords.accuracy + ' metros\r\n' +
+		'velocidade=' + position.coords.speed + ' metros/segundo\r\n' +
+		'altitude=' + position.coords.altitude + ' metros\r\n' +
+		'precisaoAltitude=' + position.coords.altitudeAccuracy;
+
+		$('#txtInfo').val(texto);
+	});
+}

@@ -1,0 +1,9 @@
+﻿Cor 1: 1BEBBE
+
+Cor 2: 0C6B56
+
+Cor 3: 62EED0
+
+Cor 4: 2C6B5D
+
+Cor 5: 14B894
